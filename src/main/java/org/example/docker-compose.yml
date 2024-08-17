@@ -1,0 +1,57 @@
+version: "3.8"
+services:
+  db:
+    image: postgres
+    container_name: local_pgdb
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: user-name
+      POSTGRES_PASSWORD: strong-password
+    volumes:
+      - local_pgdata:/var/lib/postgresql/data
+
+  h2db:
+    image: oscarfonts/h2
+    container_name: local_h2db
+    restart: always
+    ports:
+      - "1521:1521"
+    environment:
+      H2_OPTIONS: '-tcp -tcpAllowOthers -tcpPort 1521 -ifNotExists'
+    volumes:
+      - h2-data:/opt/h2-data
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin4_container
+    restart: always
+    ports:
+      - "8888:80"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: user-name@domain-name.com
+      PGADMIN_DEFAULT_PASSWORD: strong-password
+    volumes:
+      - pgadmin-data:/var/lib/pgadmin
+
+volumes:
+  local_pgdata:
+    driver: local
+    driver_opts:
+      type: 'none'
+      device: 'C:\\Users\\Admin\\Documents\\GoIT Homework\\Task 4\\database\\local_pgdata'
+      o: 'bind'
+  h2-data:
+    driver: local
+    driver_opts:
+      type: 'none'
+      device: 'C:\\Users\\Admin\\Documents\\GoIT Homework\\Task 4\\database\\h2-data'
+      o: 'bind'
+  pgadmin-data:
+    driver: local
+    driver_opts:
+      type: 'none'
+      device: 'C:\\Users\\Admin\\Documents\\GoIT Homework\\Task 4\\database\\pgadmin-data'
+      o: 'bind'
+
