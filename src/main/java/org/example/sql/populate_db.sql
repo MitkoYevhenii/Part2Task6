@@ -9,7 +9,8 @@ INSERT INTO worker (name, birthday, level, salary) VALUES
                                                        ('Grace', '1994-06-25', 'Junior', 2300),
                                                        ('Hannah', '1997-11-30', 'Trainee', 950),
                                                        ('Ian', '1983-12-14', 'Senior', 5500),
-                                                       ('Jack', '1989-04-18', 'Middle', 3800);
+                                                       ('Jack', '1989-04-18', 'Middle', 3800),
+                                                       ('Yevhenii', '2002-10-23', 'Junior', 2000);
 
 -- Додавання клієнтів
 INSERT INTO client (name) VALUES

@@ -1,0 +1,6 @@
+{
+  "jdbcUrl": "jdbc:h2:file:./src/main/java/org/example/db/mydatabase",
+  "jdbcUsername": "Yevhenii",
+  "jdbcPassword": "",
+  "initDbSql": "./src/main/java/org/example/sql"
+}
